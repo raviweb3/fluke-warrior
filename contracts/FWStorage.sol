@@ -69,6 +69,11 @@ contract FWStorage is FWRandomAllocator {
         s_addressToArmourParts[msg.sender][counterId].elementType = newElementType;
     }
 
+    function isUpgradable(uint256 counterId) public view returns(bool){
+        return s_fwStakeParts.isUpgradable(counterId); 
+    }
+
+
     function canMintWarrior() public view returns(bool){
         FWArmourDatatypes.ArmourPart[] memory armourParts = s_addressToArmourParts[msg.sender];
         for (uint i = 0; i < armourParts.length; i++) {

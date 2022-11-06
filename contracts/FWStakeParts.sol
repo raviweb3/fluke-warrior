@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "./FWArmourDatatypes.sol";
 
 // You can lock the FW Armour part for a predefined window and they will qualify for Upgrade.
-contract FWStakeParts {
+contract FWStakeParts is Ownable {
     struct Stake {
         uint256 counterId;
         uint256 stakedAtTimeStamp;
@@ -17,6 +18,11 @@ contract FWStakeParts {
         require(stakedParts[counterId].counterId == 0,"Part is already Staked");
         require(elementType!= FWArmourDatatypes.ElementType.Titanium,"Staking will not earn any more score");            
         stakedParts[counterId] = Stake(counterId,block.timestamp,elementType);
+    }
+
+    function isUpgradable(uint256 counterId) public pure returns(bool){
+        // pending implementation
+        return true;
     }
 
     function unstake(uint256 counterId) public returns(FWArmourDatatypes.ElementType){
