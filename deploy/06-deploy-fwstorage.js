@@ -55,7 +55,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
     log("----------------------------------------------------")
     log("Deploying FWStorage and waiting for confirmations...")
-   /* const fwStorage = await deploy("FWStorage", {
+    const fwStorage = await deploy("FWStorage", {
         from: deployer,
         args: [vrfCoordinatorV2Mock.address,
                fwStockController.address,
@@ -77,7 +77,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         process.env.ETHERSCAN_API_KEY
     ) {
         await verify(fwStorage.address, [])
-    }*/
+    }
 }
 
 module.exports.tags = ["all", "fwStorage"]

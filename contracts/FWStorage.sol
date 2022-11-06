@@ -83,7 +83,7 @@ contract FWStorage is FWRandomAllocator {
     }
 
     // User has to pay for Minting the Warrior
-    function mintWarrior() public payable {
+    /*function mintWarrior() public payable {
         require(canMintWarrior(),"You dont have parts to mint");
         FWArmourDatatypes.ArmourPart[] storage armourParts = s_addressToArmourParts[msg.sender];
         FWWarriorTypes.WarriorType warriorType = FWArmourLib.getWarriorToMint(armourParts);
@@ -95,7 +95,7 @@ contract FWStorage is FWRandomAllocator {
             // Assign the right Uri
         }
         s_fwWarriorCollection.safeMint(msg.sender,uri);
-    }    
+    }  */  
 
     function earnedRewards() external view returns(uint256[2] memory info){
         // Show what are the earnings of NFT holder since the last time he claimed
