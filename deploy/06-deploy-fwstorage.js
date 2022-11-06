@@ -20,7 +20,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     let fwStockController
     let fwStakeParts
     let vrfCoordinatorV2Mock
-
+   
 
     if (chainId == 31337) {
         fwRewards = await deployments.get("FWRewards")
@@ -28,6 +28,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         fwStockController = await deployments.get("FWStockController")
         fwStakeParts = await deployments.get("FWStakeParts")
         vrfCoordinator = await deployments.get("VRFCoordinatorV2Mock")
+        
 
         // create VRFV2 Subscription
         vrfCoordinatorV2Mock = await ethers.getContract("VRFCoordinatorV2Mock")
